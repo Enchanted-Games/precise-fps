@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "${group}.${id}.fabric.FabricEntry"
+    ],
+    "sodium:config_api_user": [
+      "${group}.${id}.common.SodiumConfigEntry"
     ]
   },
   ${accesswidener_field}

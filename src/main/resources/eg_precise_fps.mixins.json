@@ -1,6 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
+  "mixinextras": {"minVersion": "0.5.3"},
   "package": "games.enchanted.eg_precise_fps.common.mixin",
   "compatibilityLevel": "JAVA_${java_ver}",
   "mixins": [

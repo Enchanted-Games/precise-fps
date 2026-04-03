@@ -27,4 +27,38 @@ public class OptionsMixin {
     private void eg_precise_fps$processCustomFramerateLimitOption(Options.OptionAccess access, CallbackInfo ci) {
         access.process(ModConstants.MOD_ID + ".preciseMaxFps", ModOptionInstances.PRECISE_FRAMERATE);
     }
+
+//    @Definition(id = "OptionInstance", type = OptionInstance.class)
+//    @Expression("new OptionInstance('options.framerateLimit', ?, ?, ?, ?, ?, ?)")
+//    @WrapOperation(
+//        at = @At(
+//            value = "INVOKE",
+//            target = "Lnet/minecraft/client/OptionInstance$IntRange;xmap(Ljava/util/function/IntFunction;Ljava/util/function/ToIntFunction;Z)Lnet/minecraft/client/OptionInstance$SliderableValueSet;",
+//            ordinal = 0
+//        ),
+//        method = "<init>",
+//        slice = @Slice(
+//            from = @At("MIXINEXTRAS:EXPRESSION")
+//        )
+//    )
+//    private @Coerce Object eg_precise_fps$unlockFpsSteps(OptionInstance.IntRange instance, IntFunction<? extends Integer> intFunction, ToIntFunction<? extends Integer> toIntFunction, boolean b, Operation<Object> original) {
+//        return original.call(instance, (IntFunction<Integer>) value -> value, (ToIntFunction<Integer>) value -> value, b);
+//    }
+//
+//    @Definition(id = "OptionInstance", type = OptionInstance.class)
+//    @Expression("new OptionInstance('options.framerateLimit', ?, ?, ?, ?, ?, ?)")
+//    @WrapOperation(
+//        at = @At(
+//            value = "NEW",
+//            target = "(II)Lnet/minecraft/client/OptionInstance$IntRange;",
+//            ordinal = 0
+//        ),
+//        method = "<init>",
+//        slice = @Slice(
+//            from = @At("MIXINEXTRAS:EXPRESSION")
+//        )
+//    )
+//    private @Coerce Object eg_precise_fps$increaseFpsRange(int minInclusive, int maxInclusive, Operation<Codec<Integer>> original) {
+//        return original.call(minInclusive, Options.UNLIMITED_FRAMERATE_CUTOFF);
+//    }
 }
