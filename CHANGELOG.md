@@ -1,2 +1,3 @@
-# 1.0
-// TODO: Write changelog before publishing your mod
+# 1.1.0
+
+- Added support for sodium
