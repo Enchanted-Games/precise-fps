@@ -22,6 +22,14 @@ repositories {
         }
     }
     maven {
+        name = "Caffeine MC (sodium)"
+        url = uri("https://maven.caffeinemc.net/releases")
+    }
+    maven {
+        name = "Caffeine MC Snapshots (sodium)"
+        url = uri("https://maven.caffeinemc.net/snapshots")
+    }
+    maven {
         name = "Parchment Mappings"
         url = uri("https://maven.parchmentmc.org")
         content {
@@ -38,6 +46,11 @@ repositories {
 }
 
 dependencies {
+    // Sodium
+    api("net.caffeinemc:sodium-neoforge-api:${property("deps.sodium")}")
+    if(boolProperty("deps.sodium.runtime")) {
+        runtimeOnly("net.caffeinemc:sodium-neoforge:${property("deps.sodium")}")
+    }
 }
 
 stonecutter {

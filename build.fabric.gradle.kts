@@ -22,18 +22,31 @@ repositories {
             includeGroupAndSubgroups("com.terraformersmc")
         }
     }
+    maven {
+        name = "Caffeine MC (sodium)"
+        url = uri("https://maven.caffeinemc.net/releases")
+    }
+    maven {
+        name = "Caffeine MC Snapshots (sodium)"
+        url = uri("https://maven.caffeinemc.net/snapshots")
+    }
 }
 
 dependencies {
     minecraft("com.mojang:minecraft:${property("deps.minecraft")}")
     implementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
-    implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
 
     // Mod Menu
     if (hasProperty("deps.modmenu")) {
         api("com.terraformersmc:modmenu:${property("deps.modmenu")}")
     } else {
         compileOnly("com.terraformersmc:modmenu:18.0.0-alpha.3")
+    }
+
+    // Sodium
+    api("net.caffeinemc:sodium-fabric-api:${property("deps.sodium")}")
+    if(boolProperty("deps.sodium.runtime")) {
+        runtimeOnly("net.caffeinemc:sodium-fabric:${property("deps.sodium")}")
     }
 }
 
@@ -72,7 +85,6 @@ tasks.named<ProcessResources>("processResources") {
         this["icon"] = prop("mod.icon")
         this["license"] = prop("mod.license")
         this["fabric_loader_dep_str"] = prop("dep_str.fabric-loader")
-        this["fabric_api_dep_str"] = prop("dep_str.fabric-api")
         this["java_ver"] = java.targetCompatibility.majorVersion
     }
 
