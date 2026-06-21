@@ -1,3 +1,3 @@
-# 1.1.0
+# 1.1.1
 
-- Added support for sodium
+- Updated to 26.2
